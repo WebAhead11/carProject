@@ -2,6 +2,7 @@ const search = document.getElementById("text");
 const resList = document.getElementById("result-list");
 const subbtn = document.getElementById("btn");
 let temp;
+let matchingCars;
 //filters the json
 //using async/await to deal with promises and wait until we fetch the data
 const searchResults = async (search) => {
@@ -15,7 +16,7 @@ const searchResults = async (search) => {
     temp = cars;
 
     // now we need to filter the data
-    let matchingCars = cars.filter((car) => {
+     matchingCars = cars.filter((car) => {
       //stores the car that begins with 'search' hence the "^" and 'gi' in order to accept capital/small letter results as well
       const exp = new RegExp(`^${search}`, "gi");
       return car.Name.match(exp);
@@ -32,20 +33,22 @@ const searchResults = async (search) => {
 };
 
 function manipulateScreen(cars) {
-  if (cars.length > 0) {
-    const resArr = cars.map((car) => {
-      const newLi = document.createElement("li");
-      newLi.innerHTML = `${car.Name}`;
+ 
+      cars.map((car) => {
+      const newLi = document.createElement("option");
+      newLi.value = `${car.Name}`;
       resList.appendChild(newLi);
     });
   }
-}
+
 //works everytime we press a key
 search.addEventListener("input", () => searchResults(search.value));
-subbtn.addEventListener("click", () => data(temp));
+subbtn.addEventListener("click", () => data(matchingCars[0]));
 function data(cars) {
-  if (cars.length > 0) {
-    json.name.equals;
+
+  console.log( matchingCars)
+  
+ 
 
     document.getElementById("name").innerHTML = "name: " + cars.Name;
     document.getElementById("Miles_per_Gallon").innerHTML =
@@ -62,5 +65,9 @@ function data(cars) {
       "Acceleration: " + cars.Acceleration;
     document.getElementById("Year").innerHTML = "Year: " + cars.Year;
     document.getElementById("Origin").innerHTML = "Origin: " + cars.Origin;
-  }
+  
+}
+
+function select1(){
+  search.value=resList.innerHTML;
 }

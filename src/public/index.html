@@ -9,11 +9,14 @@
   <body>
     <div class="wrapper">
       <div class="search-input">
-        <a href="" hidden></a>
-        <input id="text" type="text" placeholder="Type to search.." />
-        <div class="autocom-box"></div>
-        <button class="icon" id="btn"><i class="fas fa-search"> C</i></button>
-        <ul id="result-list"></ul>
+        <input id="text" list="result-list" placeholder="Type to search.." />
+         
+          <button class="icon" id="btn"><i class="fas fa-search"></i>c </button>
+          <!-- <ul id="result-list" onclick="select1()"></ul> -->
+          <datalist id="result-list">
+          </datalist>
+      
+        
       </div>
     </div>
     <div class="infomation">
@@ -26,6 +29,7 @@
         <p id="Weight_in_lbs"></p>
         <p id="Year"></p>
         <p id="Origin"></p>
+        <p id="Acceleration"></p>
       </ul>
     </div>
   </body>
