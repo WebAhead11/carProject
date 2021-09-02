@@ -6,7 +6,7 @@ const types = {
   css: "text/css",
   js: "application/javascript",
   json: "application/json",
-  jpg: "image/jpg",
+  jpg: "image/jpeg",
 };
 function publicHandler(request, response) {
   const filePath = path.join(__dirname, "..", request.url);
