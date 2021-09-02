@@ -111,12 +111,6 @@ p {
   font-size: 20px;
 }
 
-/* @media screen and (max-width: 800px) {
-  .search-input {
-    width: 50%;
-    height: 30%;
-  }
-} */
 .search-input {
   height: 50px;
 }
